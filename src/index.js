@@ -59,8 +59,9 @@ function removeProduct(event) {
   console.log('The target in remove is:', target);
 
   //... your code goes here
-
-
+  let parent = target.parentNode.parentNode;
+  parent.remove();
+  calculateAll();
 }
 
 
