@@ -71,8 +71,28 @@ function removeProduct(event) {
 // ITERATION 5
 
 function createProduct() {
-  
+
   //... your code goes here
+
+  const createProductName = document.querySelector('.createProductName').value;
+  const createProductUnitPrice = document.querySelector('.createProductUnitPrice').value;
+
+  if (!createProductName || isNaN(createProductUnitPrice) || parseFloat(createProductUnitPrice) <= 0) {
+    alert('Please enter valid product details.');
+    return;
+  }
+ 
+  const table = document.querySelector('#cart');
+  const newRow = table.insertRow(-2);
+
+  const newProductNameCell= newRow.insertCell(0);
+  newProductNameCell.textContent = createProductName;
+
+  const newProductUnitPriceCell = newRow.insertCell(1);
+  newProductUnitPriceCell.textContent= createProductUnitPrice;
+
+  calculateAll()
+  
 }
 
 window.addEventListener('load', () => {
